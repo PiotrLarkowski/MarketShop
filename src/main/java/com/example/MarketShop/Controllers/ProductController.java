@@ -1,7 +1,8 @@
 package com.example.MarketShop.Controllers;
 
 import com.example.MarketShop.Domain.Product;
-import com.example.MarketShop.DomainDto.ProductDto;
+import com.example.MarketShop.DomainDto.Product.ProductDto;
+import com.example.MarketShop.DomainDto.Product.ProductWithIdDto;
 import com.example.MarketShop.Services.ProductService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -28,5 +29,9 @@ public class ProductController {
     @GetMapping(path = "/{id}")
     public Product getProductById(@PathVariable Long id){
         return productService.getProductById(id);
+    }
+    @PutMapping
+    public Product updateProduct(@RequestBody @Validated ProductWithIdDto productWithIdDto){
+        return productService.upadteProduct(productWithIdDto);
     }
 }

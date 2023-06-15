@@ -1,4 +1,4 @@
-package com.example.MarketShop.DomainDto;
+package com.example.MarketShop.DomainDto.Product;
 
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;

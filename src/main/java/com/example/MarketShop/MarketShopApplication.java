@@ -1,7 +1,7 @@
 package com.example.MarketShop;
 
 import com.example.MarketShop.Controllers.ProductController;
-import com.example.MarketShop.DomainDto.ProductDto;
+import com.example.MarketShop.DomainDto.Product.ProductDto;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

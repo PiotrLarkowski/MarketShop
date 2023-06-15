@@ -1,7 +1,8 @@
 package com.example.MarketShop.Services;
 
 import com.example.MarketShop.Domain.Product;
-import com.example.MarketShop.DomainDto.ProductDto;
+import com.example.MarketShop.DomainDto.Product.ProductDto;
+import com.example.MarketShop.DomainDto.Product.ProductWithIdDto;
 import com.example.MarketShop.Exceptions.ProductNotFoundException;
 import com.example.MarketShop.Repositories.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -38,5 +39,13 @@ public class ProductService {
     }
     public Product getProductById(Long id){
         return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
+    }
+    public Product upadteProduct(ProductWithIdDto productWithIdDto){
+        Product product = productRepository.findById(productWithIdDto.getProductId())
+                .orElseThrow(() -> new ProductNotFoundException(productWithIdDto.getProductId()));
+        product.setProductName(productWithIdDto.getProductName());
+        product.setProductPrice(productWithIdDto.getProductPrice());
+        log.info("Successful updated product: "+productWithIdDto.getProductName());
+        return product;
     }
 }
