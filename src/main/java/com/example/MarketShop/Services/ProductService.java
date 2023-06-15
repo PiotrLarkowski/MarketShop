@@ -48,4 +48,8 @@ public class ProductService {
         log.info("Successful updated product: "+productWithIdDto.getProductName());
         return product;
     }
+    public void deleteProduct(ProductWithIdDto productWithIdDto){
+        productRepository.delete(productRepository.findById(productWithIdDto.getProductId())
+                .orElseThrow(() -> new ProductNotFoundException(productWithIdDto.getProductId())));
+    }
 }

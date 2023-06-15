@@ -34,4 +34,8 @@ public class ProductController {
     public Product updateProduct(@RequestBody @Validated ProductWithIdDto productWithIdDto){
         return productService.upadteProduct(productWithIdDto);
     }
+    @DeleteMapping
+    public void deleteProduct(@RequestBody @Validated ProductWithIdDto productWithIdDto){
+        productService.deleteProduct(productWithIdDto);
+    }
 }
