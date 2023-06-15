@@ -2,6 +2,7 @@ package com.example.MarketShop.Services;
 
 import com.example.MarketShop.Domain.Product;
 import com.example.MarketShop.DomainDto.ProductDto;
+import com.example.MarketShop.Exceptions.ProductNotFoundException;
 import com.example.MarketShop.Repositories.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,8 @@ public class ProductService {
         productRepository.findAll().forEach(product -> productList.add(product));
         log.info("Returning all products");
         return productList;
+    }
+    public Product getProductById(Long id){
+        return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
     }
 }
