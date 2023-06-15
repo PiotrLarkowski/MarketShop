@@ -6,6 +6,8 @@ import com.example.MarketShop.Services.ProductService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/Product")
 public class ProductController {
@@ -17,5 +19,10 @@ public class ProductController {
     @PostMapping
     public Product createProduct(@RequestBody @Validated ProductDto productDto){
         return productService.createNewProduct(productDto);
+    }
+
+    @GetMapping
+    public List<Product> getAllProducts(){
+        return productService.getAllProducts();
     }
 }
