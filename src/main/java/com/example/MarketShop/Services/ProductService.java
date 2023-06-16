@@ -3,7 +3,7 @@ package com.example.MarketShop.Services;
 import com.example.MarketShop.Domain.Product;
 import com.example.MarketShop.DomainDto.Product.ProductDto;
 import com.example.MarketShop.DomainDto.Product.ProductWithIdDto;
-import com.example.MarketShop.Exceptions.ProductNotFoundException;
+import com.example.MarketShop.Exceptions.Product.ProductNotFoundException;
 import com.example.MarketShop.Repositories.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
