@@ -16,6 +16,8 @@ public class ClientWithIdDto {
     @NotNull
     private String clientFirstName;
     @NotNull
+    private Long productForeignKeyId;
+    @NotNull
     private String clientLastName;
     @NotNull
     private String clientPhoneNumber;

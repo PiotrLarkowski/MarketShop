@@ -13,7 +13,10 @@ import java.util.List;
 @Builder
 @EqualsAndHashCode
 public class ClientDto {
+    @NotNull
     private Long clientId;
+    @NotNull
+    private Long productForeignKeyId;
     @NotNull
     private String clientFirstName;
     @NotNull

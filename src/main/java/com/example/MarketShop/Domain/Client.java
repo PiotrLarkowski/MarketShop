@@ -20,7 +20,7 @@ public class Client {
     private String clientLastName;
     private String clientPhoneNumber;
     private String clientEMailAddress;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "productId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "productForeignKeyId")
     private List<Product> clientProductList;
 
     public void addProductToBasket(Product product){
