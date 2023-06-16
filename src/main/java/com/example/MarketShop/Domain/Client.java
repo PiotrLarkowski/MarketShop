@@ -1,10 +1,9 @@
 package com.example.MarketShop.Domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -21,5 +20,14 @@ public class Client {
     private String clientLastName;
     private String clientPhoneNumber;
     private String clientEMailAddress;
-    private Basket clientBasket;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "productId", cascade = CascadeType.ALL)
+    private List<Product> clientProductList;
+
+    public void addProductToBasket(Product product){
+        clientProductList.add(product);
+    }
+
+    public void removeProductFromBasket(Product product){
+        clientProductList.remove(product);
+    }
 }

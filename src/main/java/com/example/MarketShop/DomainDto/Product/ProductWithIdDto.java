@@ -9,7 +9,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 @Setter
 @Builder
 @EqualsAndHashCode
-public class ProductWithoutIdDto {
+public class ProductWithIdDto {
     @NotNull
     private Long productId;
     @NotNull
