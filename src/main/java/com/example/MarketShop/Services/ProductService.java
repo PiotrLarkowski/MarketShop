@@ -2,7 +2,7 @@ package com.example.MarketShop.Services;
 
 import com.example.MarketShop.Domain.Product;
 import com.example.MarketShop.DomainDto.Product.ProductDto;
-import com.example.MarketShop.DomainDto.Product.ProductWithIdDto;
+import com.example.MarketShop.DomainDto.Product.ProductWithoutIdDto;
 import com.example.MarketShop.Exceptions.Product.ProductNotFoundException;
 import com.example.MarketShop.Repositories.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +40,7 @@ public class ProductService {
     public Product getProductById(Long id){
         return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
     }
-    public Product upadteProduct(ProductWithIdDto productWithIdDto){
+    public Product upadteProduct(ProductWithoutIdDto productWithIdDto){
         Product product = productRepository.findById(productWithIdDto.getProductId())
                 .orElseThrow(() -> new ProductNotFoundException(productWithIdDto.getProductId()));
         product.setProductName(productWithIdDto.getProductName());
@@ -48,7 +48,7 @@ public class ProductService {
         log.info("Successful updated product: "+productWithIdDto.getProductName());
         return product;
     }
-    public void deleteProduct(ProductWithIdDto productWithIdDto){
+    public void deleteProduct(ProductWithoutIdDto productWithIdDto){
         productRepository.delete(productRepository.findById(productWithIdDto.getProductId())
                 .orElseThrow(() -> new ProductNotFoundException(productWithIdDto.getProductId())));
     }
