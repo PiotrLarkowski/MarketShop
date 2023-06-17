@@ -2,9 +2,9 @@ package com.example.MarketShop.DomainDto.Client;
 
 import com.example.MarketShop.Domain.Product;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
+import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
 @AllArgsConstructor

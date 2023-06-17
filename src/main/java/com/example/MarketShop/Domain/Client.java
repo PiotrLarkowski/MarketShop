@@ -1,8 +1,9 @@
 package com.example.MarketShop.Domain;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,6 +13,7 @@ import java.util.List;
 @Setter
 @Builder
 @EqualsAndHashCode
+@Table(name = "USERS")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +23,7 @@ public class Client {
     private String clientPhoneNumber;
     private String clientEMailAddress;
     @OneToMany(mappedBy = "productForeignKeyId")
-    private List<Product> clientProductList;
+    private List<Product> clientProductList=new ArrayList<>();
 
     public void addProductToBasket(Product product){
         clientProductList.add(product);

@@ -1,11 +1,7 @@
 package com.example.MarketShop.Domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.*;
-
+import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,6 +9,7 @@ import lombok.*;
 @Setter
 @Builder
 @EqualsAndHashCode
+@Table(name = "PRODUCT")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
